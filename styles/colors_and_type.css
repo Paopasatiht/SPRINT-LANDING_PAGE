@@ -1,0 +1,290 @@
+/* ==========================================================================
+   SprintAI Design System — Colors & Type Tokens
+   "AI is not a marathon, it's a sprint."
+   Bold • Energetic • Editorial • Forward-Moving
+   ========================================================================== */
+
+/* ---------- Fonts (Google Fonts CDN) ---------------------------------------
+   Loaded via @import here so any consumer can just link this file.
+   For production, consider a <link> tag in <head> for better performance.
+--------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* =========================
+     BRAND — Named like Economist
+     ========================= */
+  --sprint-orange: #F47920;      /* Primary brand */
+  --sprint-navy:   #1B3C5C;      /* Secondary brand */
+  --circuit-black: #0F1419;      /* Deep editorial bg */
+  --paper-white:   #FAFAF7;      /* Editorial bg (not pure white) */
+
+  /* =========================
+     ORANGE SCALE
+     ========================= */
+  --orange-100: #FDE4D0;
+  --orange-300: #F8A56B;
+  --orange-500: #F47920;   /* signature */
+  --orange-700: #C55F18;
+  --orange-900: #7A3D10;
+
+  /* =========================
+     NAVY SCALE
+     ========================= */
+  --navy-100: #D4DDE6;
+  --navy-300: #5B7A98;
+  --navy-500: #1B3C5C;     /* signature */
+  --navy-700: #122A44;
+  --navy-900: #0A1E2F;
+
+  /* =========================
+     CHICAGO NEUTRALS (Economist-inspired)
+     ========================= */
+  --chicago-10: #F5F5F3;
+  --chicago-20: #E8E8E6;
+  --chicago-45: #88898B;
+  --chicago-70: #3D3E40;
+  --chicago-90: #1A1B1D;
+
+  /* =========================
+     SEMANTIC
+     ========================= */
+  --success: #2D8A4F;
+  --warning: #E8A823;
+  --error:   #C0392B;
+  --info:    #2E7DB5;
+
+  /* =========================
+     SEMANTIC ROLES (light / editorial default)
+     ========================= */
+  --bg:          var(--paper-white);
+  --bg-subtle:   var(--chicago-10);
+  --bg-muted:    var(--chicago-20);
+  --surface:     var(--paper-white);
+  --surface-alt: #FFFFFF;
+
+  --fg:          var(--chicago-90);  /* strong text */
+  --fg-1:        var(--chicago-90);
+  --fg-2:        var(--chicago-70);  /* body */
+  --fg-3:        var(--chicago-45);  /* muted / caption */
+  --fg-inverse:  var(--paper-white);
+
+  --accent:      var(--sprint-orange);
+  --accent-hover: var(--orange-700);
+  --accent-tint: var(--orange-100);
+
+  --anchor:      var(--sprint-navy);
+
+  --border:      var(--chicago-20);
+  --border-strong: var(--chicago-45);
+  --rule-accent: var(--sprint-orange);
+
+  /* =========================
+     TYPE FAMILIES
+     ========================= */
+  --font-serif:     'Playfair Display', 'Source Serif Pro', Georgia, serif;
+  --font-sans:      'Inter', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:   'Oswald', 'Barlow Condensed', 'Inter', sans-serif;
+  --font-mono:      'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --font-thai:      'IBM Plex Sans Thai', 'Sarabun', var(--font-sans);
+
+  /* =========================
+     TYPE SCALE (editorial)
+     ========================= */
+  --fs-display-xl: 72px;   /* hero thumbnail / cover */
+  --fs-display-l:  56px;   /* section hero */
+  --fs-h1:         40px;
+  --fs-h2:         32px;
+  --fs-h3:         24px;
+  --fs-subhead:    20px;
+  --fs-body-lg:    18px;
+  --fs-body:       16px;
+  --fs-small:      14px;
+  --fs-label:      12px;
+
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.65;
+
+  --ls-tight:  -0.02em;
+  --ls-normal: 0;
+  --ls-wide:   0.1em;   /* kicker / label */
+
+  /* =========================
+     SPACING (4px grid)
+     ========================= */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* =========================
+     RADII — editorial = SHARP
+     ========================= */
+  --radius-0: 0;         /* editorial default */
+  --radius-1: 2px;
+  --radius-2: 4px;       /* tiny softening for inputs if needed */
+  --radius-pill: 999px;  /* tags/pills only when deliberate */
+
+  /* =========================
+     BORDERS
+     ========================= */
+  --border-thin:   1px solid var(--border);
+  --border-rule:   2px solid var(--sprint-orange);   /* editorial horizontal rule */
+  --border-card:   4px solid var(--sprint-orange);   /* card top bar */
+
+  /* =========================
+     SHADOWS — editorial uses them sparingly; motion > depth
+     ========================= */
+  --shadow-1: 0 1px 2px rgba(10, 30, 47, 0.06);
+  --shadow-2: 0 4px 12px rgba(10, 30, 47, 0.08);
+  --shadow-3: 0 12px 32px rgba(10, 30, 47, 0.12);
+  --shadow-glow-orange: 0 0 32px rgba(244, 121, 32, 0.35);
+
+  /* =========================
+     MOTION
+     ========================= */
+  --ease-sprint: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 400ms;
+
+  /* =========================
+     LAYOUT
+     ========================= */
+  --container-max: 1280px;
+  --gutter-desktop: 32px;
+  --gutter-tablet:  24px;
+  --gutter-mobile:  16px;
+
+  /* =========================
+     BRAND GRADIENTS & STREAKS (use sparingly)
+     ========================= */
+  --gradient-circuit: linear-gradient(135deg, #0F1419 0%, #1B3C5C 100%);
+  --gradient-streak:  linear-gradient(90deg, rgba(244,121,32,0.0) 0%, rgba(244,121,32,0.9) 50%, rgba(244,121,32,0.0) 100%);
+  --gradient-orange-fade: linear-gradient(90deg, #F47920 0%, rgba(244,121,32,0) 100%);
+}
+
+/* ==========================================================================
+   DARK / CIRCUIT MODE — opt-in via [data-theme="dark"]
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg:          var(--circuit-black);
+  --bg-subtle:   var(--navy-900);
+  --bg-muted:    var(--navy-700);
+  --surface:     #141A21;
+  --surface-alt: var(--navy-900);
+
+  --fg:          var(--chicago-10);
+  --fg-1:        var(--chicago-10);
+  --fg-2:        #C8CBCE;
+  --fg-3:        #8A8E92;
+  --fg-inverse:  var(--chicago-90);
+
+  --accent:      var(--orange-300);   /* lighter on dark for contrast */
+  --accent-hover: var(--orange-500);
+  --accent-tint: rgba(244, 121, 32, 0.12);
+
+  --border:      rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.24);
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENT STYLES
+   Use these as the baseline; override per-component as needed.
+   ========================================================================== */
+
+html { font-family: var(--font-sans); color: var(--fg); background: var(--bg); }
+body { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--fg-2); background: var(--bg); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+h1, .h1 {
+  font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-h1);
+  line-height: var(--lh-tight); letter-spacing: var(--ls-tight);
+  color: var(--fg-1); margin: 0 0 var(--space-6);
+}
+h2, .h2 {
+  font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-h2);
+  line-height: var(--lh-snug); letter-spacing: var(--ls-tight);
+  color: var(--fg-1); margin: 0 0 var(--space-5);
+}
+h3, .h3 {
+  font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h3);
+  line-height: var(--lh-snug); color: var(--fg-1);
+  margin: 0 0 var(--space-4);
+}
+.display-xl {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-display-xl);
+  line-height: var(--lh-tight); letter-spacing: var(--ls-tight); text-transform: uppercase;
+}
+.display-l {
+  font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-display-l);
+  line-height: var(--lh-tight); letter-spacing: var(--ls-tight);
+}
+
+.subhead {
+  font-family: var(--font-sans); font-weight: 500; font-size: var(--fs-subhead);
+  line-height: var(--lh-normal); color: var(--fg-2);
+}
+
+p, .body {
+  font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.body-lg {
+  font-size: var(--fs-body-lg); line-height: var(--lh-relaxed);
+}
+.small, small {
+  font-size: var(--fs-small); color: var(--fg-3);
+}
+
+.label, .kicker {
+  font-family: var(--font-sans); font-size: var(--fs-label); font-weight: 600;
+  text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--sprint-orange);
+  display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--sprint-orange);
+}
+
+.caption {
+  font-family: var(--font-serif); font-style: italic; font-size: var(--fs-label);
+  color: var(--chicago-45);
+}
+
+code, .mono {
+  font-family: var(--font-mono); font-size: 0.92em;
+  background: var(--chicago-10); padding: 2px 6px; border-radius: var(--radius-2);
+  color: var(--navy-700);
+}
+
+a {
+  color: var(--sprint-navy); text-decoration: none;
+  border-bottom: 1px solid var(--sprint-orange);
+  transition: color var(--dur-fast) var(--ease-sprint), border-color var(--dur-fast) var(--ease-sprint);
+}
+a:hover { color: var(--sprint-orange); }
+
+/* Editorial horizontal rule */
+hr.rule, .rule {
+  border: 0; height: 2px; background: var(--sprint-orange); margin: var(--space-8) 0;
+}
+
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family: var(--font-serif); font-weight: 700; font-size: 4em;
+  float: left; line-height: 0.85; padding: 6px 10px 0 0; color: var(--sprint-orange);
+}
+
+/* Pull quote */
+.pullquote {
+  font-family: var(--font-serif); font-style: italic; font-size: 28px; line-height: 1.3;
+  color: var(--sprint-navy); border-left: 3px solid var(--sprint-orange); padding-left: var(--space-6);
+  margin: var(--space-8) 0;
+}
+.pullquote::before { content: '\201C'; color: var(--sprint-orange); font-size: 1.4em; margin-right: 4px; }
