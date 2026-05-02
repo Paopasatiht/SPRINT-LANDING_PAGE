@@ -43,67 +43,35 @@ ls /root/SPRINT-LANDING_PAGE/
 nano /etc/nginx/sites-available/sprint-ocr
 ```
 
-เพิ่ม/แทนที่ใน `server { ... }` block (คง SSL block ที่ certbot สร้างไว้):
+แก้ **2 จุด** เท่านั้น — location อื่นไม่ต้องแตะ:
+
+**จุดที่ 1 — เพิ่ม `root` และ `index` ต่อจาก `server_name`:**
 
 ```nginx
 server {
     server_name sprintai.cloud;
 
-    # Landing page (static files)
+    # เพิ่ม 2 บรรทัดนี้
     root /root/SPRINT-LANDING_PAGE;
     index index.html;
 
-    # LINE OCR — webhook + web demo → FastAPI :8000
-    location /webhook {
-        proxy_pass         http://127.0.0.1:8000;
-        proxy_set_header   Host $host;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-    }
-    location /web/ {
-        proxy_pass         http://127.0.0.1:8000;
-        proxy_set_header   Host $host;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-        client_max_body_size 50M;
-        proxy_read_timeout   120s;
-    }
+    # ... location blocks ที่มีอยู่แล้ว (ไม่ต้องแตะ) ...
+```
 
-    # The Market's Mirror → FastAPI :8001
-    location /mirror/ {
-        proxy_pass         http://127.0.0.1:8001/;
-        proxy_set_header   Host $host;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_read_timeout 120s;
-        proxy_send_timeout 120s;
-    }
-    location /static/ {
-        proxy_pass         http://127.0.0.1:8001/static/;
-        proxy_set_header   Host $host;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-    }
+**จุดที่ 2 — หา `location /` เดิม แล้วแทนที่:**
 
-    # Don Juan Agent → FastAPI :8080
-    location /dj_project/ {
-        proxy_pass         http://127.0.0.1:8080/;
-        proxy_set_header   Host $host;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_read_timeout 120s;
-        proxy_send_timeout 120s;
-    }
+ของเดิม (proxy ไป FastAPI):
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:8000;
+    ...
+}
+```
 
-    # Landing page — serve static files
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+แทนที่ด้วย:
+```nginx
+location / {
+    try_files $uri $uri/ /index.html;
 }
 ```
 
