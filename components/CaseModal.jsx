@@ -1,5 +1,6 @@
 function CaseModal({ c, onClose }) {
   React.useEffect(() => {
+    if (!c) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
@@ -7,7 +8,7 @@ function CaseModal({ c, onClose }) {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
-  }, [onClose]);
+  }, [c, onClose]);
 
   if (!c) return null;
   const d = c.details;

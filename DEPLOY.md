@@ -77,13 +77,21 @@ location / {
 
 บันทึก: `Ctrl+O` → Enter → `Ctrl+X`
 
-### 4. Reload Nginx
+### 4. แก้ Permission (สำคัญ — ถ้าข้ามขั้นนี้จะได้ 500)
+
+Nginx รันด้วย user `www-data` ซึ่งเข้า `/root/` ไม่ได้โดย default:
+
+```bash
+chmod o+x /root
+```
+
+### 5. Reload Nginx
 
 ```bash
 nginx -t && systemctl reload nginx
 ```
 
-### 5. ตรวจสอบ
+### 6. ตรวจสอบ
 
 ```bash
 curl -I https://sprintai.cloud/
