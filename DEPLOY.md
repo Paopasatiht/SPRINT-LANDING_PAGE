@@ -113,12 +113,30 @@ curl -I https://sprintai.cloud/dj_project/
 
 ## Update (เมื่อแก้ไข landing page)
 
+### บน local machine — push code
+
+```bash
+git add <ไฟล์ที่แก้>
+git commit -m "..."
+git push origin main
+```
+
+### บน server — pull
+
 ```bash
 cd /root/SPRINT-LANDING_PAGE
 git pull origin main
 ```
 
 ไม่ต้อง restart อะไร — Nginx เสิร์ฟไฟล์โดยตรง
+
+### ตรวจสอบ
+
+เปิด browser แล้ว **Hard Refresh** เพื่อล้าง cache:
+- Windows: `Ctrl + Shift + R`
+- Mac: `Cmd + Shift + R`
+
+หรือเปิด Incognito แล้วเข้า `https://sprintai.cloud` เพื่อตรวจว่าเห็นของใหม่
 
 ---
 
